@@ -9,16 +9,18 @@ import { SkipLink } from "@/components/layout/skip-link"
 import { baseMetadata } from "@/lib/metadata"
 import { OrganizationStructuredData } from "@/components/structured-data"
 import { Toaster } from "@/components/ui/toaster"
+import Script from 'next/script';
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" })
+const GA_TRACKING_ID = 'G-3L8DL3BQPD';
 
 export const metadata: Metadata = baseMetadata
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: Readonly < {
   children: React.ReactNode
-}>) {
+} > ) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -35,6 +37,20 @@ export default function RootLayout({
           <Toaster />
           <OrganizationStructuredData />
         </ThemeProvider>
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L8DL3BQPD"></script>
+             <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}');
+            `,
+          }}
+        /> 
       </body>
     </html>
   )
