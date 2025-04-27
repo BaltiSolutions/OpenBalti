@@ -9,53 +9,54 @@ import { SkipLink } from "@/components/layout/skip-link"
 import { baseMetadata } from "@/lib/metadata"
 import { OrganizationStructuredData } from "@/components/structured-data"
 import { Toaster } from "@/components/ui/toaster"
-import Script from 'next/script';
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+import { SessionProvider } from "@/components/auth/session-provider"
+import Script from "next/script"
 
-const GA_TRACKING_ID = 'G-3L8DL3BQPD';
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" })
+
+const GA_TRACKING_ID = 'G-3L8DL3BQPD'
 
 export const metadata: Metadata = baseMetadata
 
 export default function RootLayout({
   children,
-}: Readonly < {
+}: Readonly<{
   children: React.ReactNode
-} > ) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head> 
-      <meta name="google-site-verification" content="6qYt2H85MUvuaHNGAZKRY87nANOkZ7hRfCgPcs6EOKY" />
-      
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L8DL3BQPD"></script> 
+      <head>
+        <meta name="google-site-verification" content="6qYt2H85MUvuaHNGAZKRY87nANOkZ7hRfCgPcs6EOKY" />
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
         <Script
-  id = "google-analytics"
-  strategy = "afterInteractive"
-  dangerouslySetInnerHTML = {
-    {
-      __html: `
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${GA_TRACKING_ID}');
             `,
-    }
-  }
-  /> 
+          }}
+        />
       </head>
       <body className={`${inter.className} min-h-screen flex flex-col`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <SkipLink />
-          <div className="relative min-h-screen flex flex-col">
-            <Header />
-            <main id="main-content" className="flex-1" tabIndex={-1}>
-              {children}
-            </main>
-            <Footer />
-          </div>
-          <Toaster />
-          <OrganizationStructuredData />
-        </ThemeProvider>
-     </body>
+        <SessionProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <SkipLink />
+            <div className="relative min-h-screen flex flex-col">
+              <Header />
+              <main id="main-content" className="flex-1" tabIndex={-1}>
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <Toaster />
+            <OrganizationStructuredData />
+          </ThemeProvider>
+        </SessionProvider>
+      </body>
     </html>
   )
 }
