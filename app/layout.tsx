@@ -24,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head> 
+      <meta name="google-site-verification" content="6qYt2H85MUvuaHNGAZKRY87nANOkZ7hRfCgPcs6EOKY" />
+      
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L8DL3BQPD"></script> 
         <Script
   id = "google-analytics"
