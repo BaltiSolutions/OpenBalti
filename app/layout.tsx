@@ -23,7 +23,23 @@ export default function RootLayout({
 } > ) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head> 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L8DL3BQPD"></script> 
+        <Script
+  id = "google-analytics"
+  strategy = "afterInteractive"
+  dangerouslySetInnerHTML = {
+    {
+      __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}');
+            `,
+    }
+  }
+  /> 
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SkipLink />
@@ -37,21 +53,7 @@ export default function RootLayout({
           <Toaster />
           <OrganizationStructuredData />
         </ThemeProvider>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L8DL3BQPD"></script>
-             <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_TRACKING_ID}');
-            `,
-          }}
-        /> 
-      </body>
+     </body>
     </html>
   )
 }
