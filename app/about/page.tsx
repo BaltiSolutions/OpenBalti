@@ -58,7 +58,7 @@ export default function AboutPage() {
               <div className="bg-muted rounded-lg p-3">
                 <div className="aspect-square relative rounded overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center bg-muted-foreground/10 text-xs text-muted-foreground">
-                    [Mountains of Baltistan image]
+                    <Image src="/baltistan.jpeg" alt="An awesome image of baltistan"/>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2 text-center">The magnificent landscapes of Baltistan, home to the Balti language</p>
@@ -129,7 +129,7 @@ export default function AboutPage() {
           <div className="bg-muted/40 border border-border rounded-xl p-6 md:p-8 my-8">
             <div className="md:flex gap-6 items-center">
               <div className="mx-auto md:mx-0 mb-6 md:mb-0 w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/20 overflow-hidden flex items-center justify-center text-muted-foreground text-xs">
-                [Developer photo]
+               <Image src="/developer.jpg" alt="An awesome image of baltistan"/>
               </div>
               <div>
                 <h3 className="text-xl font-medium mb-2">Dilshad Hussain</h3>
