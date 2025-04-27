@@ -36,7 +36,7 @@ export default function AboutPage() {
           <blockquote className="italic text-xl md:text-2xl font-light text-center">
             "When a language dies, we don't just lose words; we lose a unique way of seeing the world."
           </blockquote>
-          <p className="text-center mt-4 text-muted-foreground">— Ancient Balti proverb</p>
+          <p className="text-center mt-4 text-muted-foreground">— Dilshad Hussain ShadBalti</p>
         </div>
 
         <div className="prose prose-lg dark:prose-invert max-w-none">  
