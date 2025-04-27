@@ -34,7 +34,7 @@ export const baseMetadata: Metadata = {
   card: "summary_large_image",
   title: "OpenBalti Dictionary",
   description: "A comprehensive digital dictionary for the Balti language",
-  images: ["/og-image.png"],
+  images: ["/android-chrome-512x512.png"],
   creator: "@openbalti" // Change this if the handle is incorrect
 },
   openGraph: {
@@ -46,7 +46,7 @@ export const baseMetadata: Metadata = {
     siteName: "OpenBalti Dictionary",
     images: [
       {
-        url: "/og-image.png",
+        url: "/android-chrome-512x512.png",
         width: 1200,
         height: 630,
         alt: "OpenBalti Dictionary",
@@ -57,7 +57,7 @@ export const baseMetadata: Metadata = {
     card: "summary_large_image",
     title: "OpenBalti Dictionary",
     description: "A comprehensive digital dictionary for the Balti language",
-    images: ["/og-image.png"],
+    images: ["android-chrome-512x512.png"],
     creator: "@openbalti",
   },
   icons: {
